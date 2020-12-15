@@ -36,7 +36,7 @@ module BusinessTime
       @days >= 0
     end
 
-    def calculate_after(time, days)
+    def calculate_after(time, days, options={})
       if (time.is_a?(Time) || time.is_a?(DateTime)) && !time.workday?(options)
         time = Time.beginning_of_workday(time)
       end
@@ -52,7 +52,7 @@ module BusinessTime
       time
     end
 
-    def calculate_before(time, days)
+    def calculate_before(time, days, options={})
       if (time.is_a?(Time) || time.is_a?(DateTime)) && !time.workday?
         time = Time.beginning_of_workday(time)
       end
